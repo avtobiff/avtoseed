@@ -1,0 +1,64 @@
+AVTOSEED
+========
+
+Avtomagically install Debian with preconfigured answers to the installation
+questions.
+
+The goal is to be lightweight and easily customizable.
+
+Main source code tracker is at
+
+    http://gitorious.org/avtobiff/avtoseed
+
+GLPv3 licensed clonable source code is available at
+
+    git://gitorious.org/avtobiff/avtoseed.git
+
+
+COMPABILITY
+-----------
+Debian 5.0 "Squeeze"
+
+
+PROCEDURE
+---------
+Distribute avtoseed files over HTTP for instance
+
+    cd avtoseed
+    python -mSimpleHTTPServer
+
+Now avtoseed files are served from the computer on port 8000.
+
+Select Advanced options > Automatic install and press TAB to edit the boot
+parameters.
+
+    /install.amd/vmlinuz ... -- preseed/url=http://SERVERADDR:PORT/avtoseed.cfg hostname=HOSTNAME domain=DOMAIN
+
+Press enter and just lean back and enjoy the melodies.
+
+
+CUSTOMIZING
+-----------
+Two variables are used to configure avtoseed i.e. avtoseed/machine and
+avtoseed/partition.
+
+Users and packages are customizable per machine-type and the partition scheme
+is customizable by partition scheme type (naturally).
+
+For instance, the default boot parameters are
+
+    avtoseed/machine=default avtoseed/partition/default
+
+To add customized files for packages and users add files called
+
+    packages-NAME.cfg
+    users-NAME.cfg
+
+Edit the files and then use NAME with the boot parameters
+
+    avtoseed/machine=NAME
+
+Analogous with partition.
+
+
+ -- Per Andersson <avtobiff@gmail.com>  Thu, 24 Feb 2011 14:03:50 +0100
